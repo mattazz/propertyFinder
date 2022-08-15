@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas
+from pathlib import Path
 
 userSearch = input("Input property search: ")
 link = "https://www.lamudi.com.ph/buy/?q={}".format(userSearch)
@@ -42,4 +43,14 @@ output = {'Title': listTitle,
 # Create pandas DataFrame
 df = pandas.DataFrame(output)
 
-df.to_csv('output.csv')
+path = Path('output.csv')
+if path.is_file():
+    print('=' * 80)
+    userOverwrite = input("File already exists, are you sure you want to overwrite? (y/n)")
+if userOverwrite == 'y':
+    print("Overwriting old output.csv file...")
+    df.to_csv(path)
+    print("Output saved")
+    print("Exiting...")
+else:
+    print("Exiting...")
