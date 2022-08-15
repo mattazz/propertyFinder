@@ -44,10 +44,11 @@ output = {'Title': listTitle,
 df = pandas.DataFrame(output)
 
 path = Path('output.csv')
+userInput = 'y'
 if path.is_file():
     print('=' * 80)
-    userOverwrite = input("File already exists, are you sure you want to overwrite? (y/n)")
-if userOverwrite == 'y':
+    userInput = input("File already exists, are you sure you want to overwrite? (y/n)")
+if userInput == 'y':
     print("Overwriting old output.csv file...")
     df.to_csv(path)
     print("Output saved")
