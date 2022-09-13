@@ -1,0 +1,18 @@
+import requests
+from bs4 import BeautifulSoup
+import pandas
+from pathlib import Path
+
+userSearch = input("Input property search: ")
+link = f'https://rentpad.com.ph/q/{userSearch}'
+
+soup = BeautifulSoup(requests.get(link).content, "html.parser")
+print(soup)
+
+listTitle = []
+listLink = []
+listPrice = []
+listDec = []
+
+for row in soup.select(".listing-holder"):
+    title = 
