@@ -4,5 +4,5 @@ Extracts local Philippines property listings from Lamudi and exports it into a c
 
 08-13-2022
 - Added parsing for multiple pages into one output file
-- Started work on other website for parsing
+- Started work on Rentpad website for parsing
 
